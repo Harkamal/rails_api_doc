@@ -1,5 +1,5 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<%= form_for(@api) do |f| %>
+<%= form_for [:project, @api] do |f| %>
   <% if @api.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
@@ -11,35 +11,55 @@
       </ul>
     </div>
   <% end %>
-
+<div class="form-fields">
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => "true" %>
   </div>
   <div class="field">
     <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.text_field :url, :required => "true" %>
   </div>
   <div class="field">
     <%= f.label :version %><br />
-    <%= f.text_field :version %>
+    <%= f.text_field :version, :required => "true" %>
   </div>
   <div class="field">
     <%= f.label :request_type %><br />
-    <%= f.text_field :request_type %>
+    <%= f.text_field :request_type, :required => "true" %>
   </div>
   <div class="field">
     <%= f.label :api_group %><br />
-    <%= f.text_field :api_group %>
+    <%= f.text_field :api_group, :required => "true" %>
   </div>
+</div>
+<div class="clear"></div>
   <h1>Parameters</h1>
   <div class="nested-fields">
     <%= f.fields_for :parameters do |ff| %>
       <%= render "parameter_fields", :f => ff %>
     <% end %>
   </div>
-  <%= link_to_add_fields "Add another Parameters", f, :parameters %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="link-to-add-more"><%= link_to_add_fields "Add More Parameters", f, :parameters %></div>
+<div class="clear"></div>
+  <h1>Success Response</h1>
+  <div class="success-fields">
+    <%= f.fields_for :success_responses do |ff| %>
+      <%= render "success_response_fields", :f => ff %>
+    <% end %>
   </div>
+  <div class="link-to-add-more"><%= link_to_add_success_fields "Add More Success Response", f, :success_responses %></div>
+<div class="clear"></div>
+  <h1>Failure Response</h1>
+  <div class="failure-fields">
+    <%= f.fields_for :failure_responses do |ff| %>
+      <%= render "failure_response_fields", :f => ff %>
+    <% end %>
+  </div>
+  <div class="link-to-add-more"><%= link_to_add_failure_fields "Add More Failure Response", f, :failure_responses %></div>
+  <div class="clear"></div>
+  <div class="actions">
+    <%= f.submit "Create API", :class => "btn create_api_btn" %>
+  </div>
+
 <% end %>

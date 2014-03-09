@@ -1,50 +1,36 @@
+<style type="text/css">
+  pre {
+    background-color: #292b36;
+    color: #ffffff;
+    border-radius: 6px;
+    position: relative;
+    margin: 10px 0 20px 0;
+  }
+  span.pln {
+    float: left;
+    margin: 6px
+  }
+  span.pln a{
+    color: green;
+  }
+</style>
 <h3><%= flash[:notice] %></h3>
 <h1>Listing apis</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Version</th>
-    <th>Request type</th>
-    <th>Api group</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @apis.each do |api| %>
-  <tr>
-    <td><%= api.name %></td>
-    <td><%= api.url %></td>
-    <td><%= api.version %></td>
-    <td><%= api.request_type %></td>
-    <td><%= api.api_group %></td>
-    <td><%= link_to 'Show', api %></td>
-    <td><%= link_to 'Edit', edit_api_path(api) %></td>
-    <td><%= link_to 'Destroy', api, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-    <tr>
-        <th>Parameters</th>
-    </tr>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-
-  <% api.parameters.each do |p|%>
-    <tr>
-        <td><%= p.name %></td>
-        <td><%= p.param_type %></td>
-        <td><%= p.note %></td>
-    </tr>
-  <% end %>
+    <h3>API Name : <%= api.name %></h3>
+    <pre class="prettyprint language-html prettyprinted" data-type="get" style="">
+      <code>
+        <span class="pln"><strong>URL: </strong><%= api.url %></span><br />
+        <span class="pln"><strong>Version: </strong><%= api.version %></span><br />
+        <span class="pln"><strong>Request: </strong><%= api.request_type %></span><br />
+        <span class="pln"><strong>API Group: </strong><%= api.api_group %></span><br />
+        <span class="pln link"><%= link_to 'View Details', project_api_path(@project, api) %> | <%= link_to 'Edit', edit_project_api_path(@project, api) %> | <%= link_to 'Destroy', project_api_path(@project, api), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </code>
+    </pre>
+   
 <% end %>
-</table>
-
 <br />
+<%= paginate @apis %>
 
-<%= link_to 'New Api', new_api_path %>
-<%= link_to 'Generate Api Doc', generate_doc_path %>
-<%= link_to 'View API Doc', '/assets/doc/index.html', :target => "_blank"%>
+<%= link_to 'New Api', new_project_api_path %>
+<%= link_to 'Generate Api Doc', project_generate_doc_path %>

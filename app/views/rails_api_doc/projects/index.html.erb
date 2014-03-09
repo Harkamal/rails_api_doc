@@ -1,0 +1,24 @@
+<h1>All Projects</h1>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><span class="label label-success"><%= project.name %></span></td>
+        <td><%= project.description %></td>
+        <td><%= link_to 'Show', project %> | <%= link_to 'Edit', edit_project_path(project) %> | 
+        <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <%= link_to 'All Apis', project_apis_path(project)%> |
+        <%= link_to 'New Api', new_project_api_path(project) %> |
+        <% project_name = project.name.gsub(" ", "_")%>
+        <%= link_to 'View Api Doc', "/assets/#{project_name}/doc/index.html", :target => "_blank" if File.directory?("app/assets/projects/#{project_name}/")%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<%= link_to 'New Project', new_project_path %>
