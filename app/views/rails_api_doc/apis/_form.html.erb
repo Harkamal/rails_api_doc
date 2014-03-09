@@ -1,0 +1,45 @@
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<%= form_for(@api) do |f| %>
+  <% if @api.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
+
+      <ul>
+      <% @api.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :request_type %><br />
+    <%= f.text_field :request_type %>
+  </div>
+  <div class="field">
+    <%= f.label :api_group %><br />
+    <%= f.text_field :api_group %>
+  </div>
+  <h1>Parameters</h1>
+  <div class="nested-fields">
+    <%= f.fields_for :parameters do |ff| %>
+      <%= render "parameter_fields", :f => ff %>
+    <% end %>
+  </div>
+  <%= link_to_add_fields "Add another Parameters", f, :parameters %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

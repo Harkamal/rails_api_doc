@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @parameter.name %>
+</p>
+
+<p>
+  <b>type:</b>
+  <%= @parameter.type %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @parameter.note %>
+</p>
+
+<p>
+  <b>Api:</b>
+  <%= @parameter.api_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_parameter_path(@parameter) %> |
+<%= link_to 'Back', parameters_path %>
