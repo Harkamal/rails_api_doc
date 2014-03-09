@@ -2,15 +2,16 @@
 
 DEPENDENCY
 
-Install -- npm install apidoc -g
+Install --> npm install apidoc -g
 
 Follow these steps:
 
-* Place the engine code in rails app -- vendor/engines/ directory
-* Include engine code as a gem -- gem 'rails_api_doc', path: "vendor/engines/rails_api_doc"
+* Place the engine code in rails app --> vendor/engines/ directory
 
-* Mount the engine routes in the application -- mount RailsApiDoc::Engine => "/rails_api_doc"
+* Include engine code as a gem --> gem 'rails_api_doc', path: "vendor/engines/rails_api_doc"
 
-* Install the migrations -- rake rails_api_doc:install:migrations
+* Mount the engine routes in the application --> mount RailsApiDoc::Engine => "/rails_api_doc"
 
-* Visit Rails API Doc Url -- ROOT_URL/rails_api_doc
+* Install the migrations --> rake rails_api_doc:install:migrations
+
+* Visit Rails API Doc Url --> ROOT_URL/rails_api_doc
