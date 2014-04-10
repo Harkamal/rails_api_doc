@@ -1,5 +1,6 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<%= form_for [:project, @api] do |f| %>
+
+<%= form_for [@project, @api] do |f| %>
   <% if @api.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
