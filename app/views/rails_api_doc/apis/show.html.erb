@@ -1,30 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @api.name %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @api.url %>
-</p>
-
-<p>
-  <b>Version:</b>
-  <%= @api.version %>
-</p>
-
-<p>
-  <b>Request type:</b>
-  <%= @api.request_type %>
-</p>
-
-<p>
-  <b>Api group:</b>
-  <%= @api.api_group %>
-</p>
-
+<br /><h3>This API is Listed under Project - "<%= @api.project.name %>"</h3><br />
+<h4>API Name : <%= @api.name %></h4>
+    <pre class="prettyprint language-html prettyprinted" data-type="get" style="">
+      <code>
+        <span class="pln"><strong class="green">URL: </strong><%= @api.url %></span><br />
+        <span class="pln"><strong class="green">Version: </strong><%= @api.version %></span><br />
+        <span class="pln"><strong class="green">Request: </strong><%= @api.request_type %></span><br />
+        <span class="pln"><strong class="green">API Group: </strong><%= @api.api_group %></span><br />
+        <span class="pln"><strong class="big-font">Parameters: </strong></span><br />
+        <% @api.parameters.each do |p|%>
+          <span class="pln"><strong class="green">Name: </strong><%= p.name %></span><br />
+          <span class="pln"><strong class="green">Type: </strong><%= p.param_type%></span><br />
+          <span class="pln"><strong class="green">Note: </strong><%= p.note%></span><br />
+        <% end %>
+        <span class="pln"><strong class="big-font">Succes Response: </strong></span><br />
+        <% @api.success_responses.each do |p|%>
+          <span class="pln"><strong class="green">Note: </strong><%= p.note %></span><br />
+          <span class="pln"><strong class="green">Response: </strong></span><%= p.success_structure %><br /><br />
+        <% end %>
+        <span class="pln"><strong class="big-font">Failure Responses: </strong></span><br />
+        <% @api.failure_responses.each do |p|%>
+          <span class="pln"><strong class="green">Note: </strong><%= p.note%></span><br />
+          <span class="pln"><strong class="green">Type: </strong></span><%= p.failure_structure%><br /><br />
+        <% end %>
+      </code>
+    </pre>
 
 <%= link_to 'Edit', edit_project_api_path(@project, @api) %> |
 <%= link_to 'Back', project_apis_path(@project) %>
