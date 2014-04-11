@@ -8359,3 +8359,23 @@ a i {
   padding: 0 29px;
   width: 50px;
 }
+pre {
+  background-color: #292b36;
+  color: #ffffff;
+  border-radius: 6px;
+  position: relative;
+  margin: 10px 0 20px 0;
+}
+span.pln {
+  float: left;
+  margin: 6px
+}
+span.pln a{
+  color: green;
+}
+.green{
+  color: green;
+}
+.big-font{
+  font-size: 18px;
+}

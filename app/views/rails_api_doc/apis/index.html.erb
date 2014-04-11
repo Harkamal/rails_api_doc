@@ -1,21 +1,5 @@
-<style type="text/css">
-  pre {
-    background-color: #292b36;
-    color: #ffffff;
-    border-radius: 6px;
-    position: relative;
-    margin: 10px 0 20px 0;
-  }
-  span.pln {
-    float: left;
-    margin: 6px
-  }
-  span.pln a{
-    color: green;
-  }
-</style>
 <h3><%= flash[:notice] %></h3>
-<h1>Listing apis</h1>
+<h1>Listing apis</h1><br />
 <% @apis.each do |api| %>
     <h3>API Name : <%= api.name %></h3>
     <pre class="prettyprint language-html prettyprinted" data-type="get" style="">
@@ -32,5 +16,6 @@
 <br />
 <%= paginate @apis %>
 
-<%= link_to 'New Api', new_project_api_path %>
-<%= link_to 'Generate Api Doc', project_generate_doc_path %>
+<%= link_to 'New Api', new_project_api_path %>|
+<%= link_to 'Generate Api Doc', project_generate_doc_path %>|
+<%= link_to 'All Projects', projects_path%>
