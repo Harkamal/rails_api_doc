@@ -7,11 +7,11 @@ require "rails_api_doc/version"
 Gem::Specification.new do |s|
   s.name        = "rails_api_doc"
   s.version     = RailsApiDoc::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsApiDoc."
-  s.description = "TODO: Description of RailsApiDoc."
+  s.authors     = ['Harkamal Singh']
+  s.email       = ['honey.rawal89@gmail.com']
+  s.homepage    = "https://github.com/Harkamal/rails_api_doc"
+  s.summary     = "Create API Documentation"
+  s.description = "This engine provides the UI for generating documentation for apis using apidocjs"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
