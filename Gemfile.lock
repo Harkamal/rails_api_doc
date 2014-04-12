@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_api_doc (0.0.7)
+    rails_api_doc (0.0.8)
       kaminari (>= 0.15.1)
       protected_attributes (>= 1.0.3)
       rails (>= 3.0.1)
