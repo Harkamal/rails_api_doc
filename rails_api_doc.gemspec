@@ -7,6 +7,7 @@ require "rails_api_doc/version"
 Gem::Specification.new do |s|
   s.name        = "rails_api_doc"
   s.version     = RailsApiDoc::VERSION
+  s.required_ruby_version     = '>= 1.9.3'
   s.authors     = ['Harkamal Singh']
   s.email       = ['honey.rawal89@gmail.com']
   s.homepage    = "https://github.com/Harkamal/rails_api_doc"
